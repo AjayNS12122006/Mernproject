@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+body{
+  background:#0F0F10;
+  color:white;
+}
+.leaflet-container {
+  z-index: 0 !important;
+}
+
+/* WhatsApp / Google Maps style live location dot */
+.live-location-marker {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+.live-location-marker .dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  background: #1a73e8;
+  border: 3px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+.live-location-marker .pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  background: rgba(26, 115, 232, 0.35);
+  border-radius: 50%;
+  animation: livePulse 1.8s ease-out infinite;
+  z-index: 1;
+}
+
+@keyframes livePulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(3.2);
+    opacity: 0;
+  }
+}
+
+.destination-marker {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  transform: translateY(-6px);
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5));
+}
+
+/* Dark, Google-Maps-style zoom control instead of Leaflet's default white boxes */
+.leaflet-control-zoom {
+  border: none !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+.leaflet-control-zoom a {
+  background-color: #171717 !important;
+  color: #e5e7eb !important;
+  border: 1px solid #333 !important;
+  width: 34px !important;
+  height: 34px !important;
+  line-height: 34px !important;
+  font-size: 18px !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background-color: #222 !important;
+  color: #34a853 !important;
+}
+
+.leaflet-control-attribution {
+  background: rgba(23, 23, 23, 0.85) !important;
+  color: #9ca3af !important;
+  border-radius: 8px 0 0 0;
+}
+
+.leaflet-control-attribution a {
+  color: #60a5fa !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: #171717 !important;
+  color: #e5e7eb !important;
+  border-radius: 12px !important;
+}
+
+.leaflet-popup-tip {
+  background: #171717 !important;
+}
